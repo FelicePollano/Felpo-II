@@ -1,0 +1,19 @@
+date: 30.5.2011, 18:48.4
+roce-roman's own chess engine
+version: 0.0370
+values read from file: Roce.cfg
+nullmove set to depth: 2
+hashsize: 32 [not yet implemented]
+own book: 1 [not yet implemented]
+use book to depth: 12 [not yet implemented]
+piece values: 
+white pawn: 100
+white knight: 300
+white bishop: 300
+white rook: 500
+white queen: 950
+black queen: 950
+black rook: 500
+black bishop: 300
+black knight: 300
+black pawn: 100
