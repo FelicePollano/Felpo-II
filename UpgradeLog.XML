@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="FelpoII">
+</Property><Property Name="Solution File" Value="C:\Users\fpollano\Documents\Visual Studio 2010\Projects\FelpoII\FelpoII.sln">
+</Property><Property Name="User Options File" Value="C:\Users\fpollano\Documents\Visual Studio 2010\Projects\FelpoII\FelpoII.suo">
+</Property><Property Name="Date" Value="giovedì 30 giugno 2011">
+</Property><Property Name="Time" Value="21:36">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="FelpoII.sln" Description="File successfully backed up as C:\Users\fpollano\Documents\Visual Studio 2010\Projects\FelpoII\Backup\FelpoII.sln">
+</Event><Event ErrorLevel="0" Project="" Source="FelpoII.suo" Description="File successfully backed up as C:\Users\fpollano\Documents\Visual Studio 2010\Projects\FelpoII\Backup\FelpoII.suo">
+</Event><Event ErrorLevel="0" Project="FelpoII" Source="FelpoII\FelpoII.csproj" Description="Project file successfully backed up as C:\Users\fpollano\Documents\Visual Studio 2010\Projects\FelpoII\Backup\FelpoII\FelpoII.csproj">
+</Event><Event ErrorLevel="0" Project="FelpoII" Source="FelpoII\CastlingAvail.cs" Description="File successfully backed up as C:\Users\fpollano\Documents\Visual Studio 2010\Projects\FelpoII\Backup\FelpoII\CastlingAvail.cs">
+</Event><Event ErrorLevel="0" Project="FelpoII" Source="FelpoII\HashTable.cs" Description="File successfully backed up as C:\Users\fpollano\Documents\Visual Studio 2010\Projects\FelpoII\Backup\FelpoII\HashTable.cs">
+</Event><Event ErrorLevel="0" Project="FelpoII" Source="FelpoII\HashTableEntry.cs" Description="File successfully backed up as C:\Users\fpollano\Documents\Visual Studio 2010\Projects\FelpoII\Backup\FelpoII\HashTableEntry.cs">
+</Event><Event ErrorLevel="0" Project="FelpoII" Source="FelpoII\PieceType.cs" Description="File successfully backed up as C:\Users\fpollano\Documents\Visual Studio 2010\Projects\FelpoII\Backup\FelpoII\PieceType.cs">
+</Event><Event ErrorLevel="0" Project="FelpoII" Source="FelpoII\PinStatus.cs" Description="File successfully backed up as C:\Users\fpollano\Documents\Visual Studio 2010\Projects\FelpoII\Backup\FelpoII\PinStatus.cs">
+</Event><Event ErrorLevel="0" Project="FelpoII" Source="FelpoII\PromotionTo.cs" Description="File successfully backed up as C:\Users\fpollano\Documents\Visual Studio 2010\Projects\FelpoII\Backup\FelpoII\PromotionTo.cs">
+</Event><Event ErrorLevel="0" Project="FelpoII" Source="FelpoII\Square.cs" Description="File successfully backed up as C:\Users\fpollano\Documents\Visual Studio 2010\Projects\FelpoII\Backup\FelpoII\Square.cs">
+</Event><Event ErrorLevel="0" Project="FelpoII" Source="FelpoII\Extension.cs" Description="File successfully backed up as C:\Users\fpollano\Documents\Visual Studio 2010\Projects\FelpoII\Backup\FelpoII\Extension.cs">
+</Event><Event ErrorLevel="0" Project="FelpoII" Source="FelpoII\Interfaces\IPiece.cs" Description="File successfully backed up as C:\Users\fpollano\Documents\Visual Studio 2010\Projects\FelpoII\Backup\FelpoII\Interfaces\IPiece.cs">
+</Event><Event ErrorLevel="0" Project="FelpoII" Source="FelpoII\Main.cs" Description="File successfully backed up as C:\Users\fpollano\Documents\Visual Studio 2010\Projects\FelpoII\Backup\FelpoII\Main.cs">
+</Event><Event ErrorLevel="0" Project="FelpoII" Source="FelpoII\DivideResults.cs" Description="File successfully backed up as C:\Users\fpollano\Documents\Visual Studio 2010\Projects\FelpoII\Backup\FelpoII\DivideResults.cs">
+</Event><Event ErrorLevel="0" Project="FelpoII" Source="FelpoII\EndGameEventArgs.cs" Description="File successfully backed up as C:\Users\fpollano\Documents\Visual Studio 2010\Projects\FelpoII\Backup\FelpoII\EndGameEventArgs.cs">
+</Event><Event ErrorLevel="0" Project="FelpoII" Source="FelpoII\EngineToWinboardEventArgs.cs" Description="File successfully backed up as C:\Users\fpollano\Documents\Visual Studio 2010\Projects\FelpoII\Backup\FelpoII\EngineToWinboardEventArgs.cs">
+</Event><Event ErrorLevel="0" Project="FelpoII" Source="FelpoII\InfoMessageEventArgs.cs" Description="File successfully backed up as C:\Users\fpollano\Documents\Visual Studio 2010\Projects\FelpoII\Backup\FelpoII\InfoMessageEventArgs.cs">
+</Event><Event ErrorLevel="0" Project="FelpoII" Source="FelpoII\Interfaces\IChessBoard.cs" Description="File successfully backed up as C:\Users\fpollano\Documents\Visual Studio 2010\Projects\FelpoII\Backup\FelpoII\Interfaces\IChessBoard.cs">
+</Event><Event ErrorLevel="0" Project="FelpoII" Source="FelpoII\Interfaces\IEngine.cs" Description="File successfully backed up as C:\Users\fpollano\Documents\Visual Studio 2010\Projects\FelpoII\Backup\FelpoII\Interfaces\IEngine.cs">
+</Event><Event ErrorLevel="0" Project="FelpoII" Source="FelpoII\MovePackHelper.cs" Description="File successfully backed up as C:\Users\fpollano\Documents\Visual Studio 2010\Projects\FelpoII\Backup\FelpoII\MovePackHelper.cs">
+</Event><Event ErrorLevel="0" Project="FelpoII" Source="FelpoII\OX88Chessboard.cs" Description="File successfully backed up as C:\Users\fpollano\Documents\Visual Studio 2010\Projects\FelpoII\Backup\FelpoII\OX88Chessboard.cs">
+</Event><Event ErrorLevel="0" Project="FelpoII" Source="FelpoII\PerfResults.cs" Description="File successfully backed up as C:\Users\fpollano\Documents\Visual Studio 2010\Projects\FelpoII\Backup\FelpoII\PerfResults.cs">
+</Event><Event ErrorLevel="0" Project="FelpoII" Source="FelpoII\Piece.cs" Description="File successfully backed up as C:\Users\fpollano\Documents\Visual Studio 2010\Projects\FelpoII\Backup\FelpoII\Piece.cs">
+</Event><Event ErrorLevel="0" Project="FelpoII" Source="FelpoII\Pieces\Bishop.cs" Description="File successfully backed up as C:\Users\fpollano\Documents\Visual Studio 2010\Projects\FelpoII\Backup\FelpoII\Pieces\Bishop.cs">
+</Event><Event ErrorLevel="0" Project="FelpoII" Source="FelpoII\Pieces\King.cs" Description="File successfully backed up as C:\Users\fpollano\Documents\Visual Studio 2010\Projects\FelpoII\Backup\FelpoII\Pieces\King.cs">
+</Event><Event ErrorLevel="0" Project="FelpoII" Source="FelpoII\Pieces\Queen.cs" Description="File successfully backed up as C:\Users\fpollano\Documents\Visual Studio 2010\Projects\FelpoII\Backup\FelpoII\Pieces\Queen.cs">
+</Event><Event ErrorLevel="0" Project="FelpoII" Source="FelpoII\Pieces\Rook.cs" Description="File successfully backed up as C:\Users\fpollano\Documents\Visual Studio 2010\Projects\FelpoII\Backup\FelpoII\Pieces\Rook.cs">
+</Event><Event ErrorLevel="0" Project="FelpoII" Source="FelpoII\Pieces\Knight.cs" Description="File successfully backed up as C:\Users\fpollano\Documents\Visual Studio 2010\Projects\FelpoII\Backup\FelpoII\Pieces\Knight.cs">
+</Event><Event ErrorLevel="0" Project="FelpoII" Source="FelpoII\Pieces\Pawn.cs" Description="File successfully backed up as C:\Users\fpollano\Documents\Visual Studio 2010\Projects\FelpoII\Backup\FelpoII\Pieces\Pawn.cs">
+</Event><Event ErrorLevel="0" Project="FelpoII" Source="FelpoII\Properties\AssemblyInfo.cs" Description="File successfully backed up as C:\Users\fpollano\Documents\Visual Studio 2010\Projects\FelpoII\Backup\FelpoII\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="FelpoII" Source="FelpoII\SideEnum.cs" Description="File successfully backed up as C:\Users\fpollano\Documents\Visual Studio 2010\Projects\FelpoII\Backup\FelpoII\SideEnum.cs">
+</Event><Event ErrorLevel="0" Project="FelpoII" Source="FelpoII\WinBoardAdapter.cs" Description="File successfully backed up as C:\Users\fpollano\Documents\Visual Studio 2010\Projects\FelpoII\Backup\FelpoII\WinBoardAdapter.cs">
+</Event><Event ErrorLevel="0" Project="FelpoII" Source="FelpoII\FelpoII.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="FelpoII" Source="FelpoII\FelpoII.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="FelpoIITest" Source="FelpoIITest\FelpoIITest.csproj" Description="Project file successfully backed up as C:\Users\fpollano\Documents\Visual Studio 2010\Projects\FelpoII\Backup\FelpoIITest\FelpoIITest.csproj">
+</Event><Event ErrorLevel="0" Project="FelpoIITest" Source="FelpoIITest\PerftSuite.cs" Description="File successfully backed up as C:\Users\fpollano\Documents\Visual Studio 2010\Projects\FelpoII\Backup\FelpoIITest\PerftSuite.cs">
+</Event><Event ErrorLevel="0" Project="FelpoIITest" Source="FelpoIITest\Program.cs" Description="File successfully backed up as C:\Users\fpollano\Documents\Visual Studio 2010\Projects\FelpoII\Backup\FelpoIITest\Program.cs">
+</Event><Event ErrorLevel="0" Project="FelpoIITest" Source="FelpoIITest\Properties\AssemblyInfo.cs" Description="File successfully backed up as C:\Users\fpollano\Documents\Visual Studio 2010\Projects\FelpoII\Backup\FelpoIITest\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="FelpoIITest" Source="FelpoIITest\Perft\perftsuite.epd" Description="File successfully backed up as C:\Users\fpollano\Documents\Visual Studio 2010\Projects\FelpoII\Backup\FelpoIITest\Perft\perftsuite.epd">
+</Event><Event ErrorLevel="0" Project="FelpoIITest" Source="FelpoIITest\FelpoIITest.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="FelpoIITest" Source="FelpoIITest\FelpoIITest.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="MersenneTwisterGenerator" Source="MersenneTwisterGenerator\MersenneTwisterGenerator.csproj" Description="Project file successfully backed up as C:\Users\fpollano\Documents\Visual Studio 2010\Projects\FelpoII\Backup\MersenneTwisterGenerator\MersenneTwisterGenerator.csproj">
+</Event><Event ErrorLevel="0" Project="MersenneTwisterGenerator" Source="MersenneTwisterGenerator\Program.cs" Description="File successfully backed up as C:\Users\fpollano\Documents\Visual Studio 2010\Projects\FelpoII\Backup\MersenneTwisterGenerator\Program.cs">
+</Event><Event ErrorLevel="0" Project="MersenneTwisterGenerator" Source="MersenneTwisterGenerator\Properties\AssemblyInfo.cs" Description="File successfully backed up as C:\Users\fpollano\Documents\Visual Studio 2010\Projects\FelpoII\Backup\MersenneTwisterGenerator\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="MersenneTwisterGenerator" Source="MersenneTwisterGenerator\RandomMT.cs" Description="File successfully backed up as C:\Users\fpollano\Documents\Visual Studio 2010\Projects\FelpoII\Backup\MersenneTwisterGenerator\RandomMT.cs">
+</Event><Event ErrorLevel="0" Project="MersenneTwisterGenerator" Source="MersenneTwisterGenerator\MersenneTwisterGenerator.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="MersenneTwisterGenerator" Source="MersenneTwisterGenerator\MersenneTwisterGenerator.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="FelpoII.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="FelpoII.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="FelpoII" Source="FelpoII\FelpoII.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="FelpoIITest" Source="FelpoIITest\FelpoIITest.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="MersenneTwisterGenerator" Source="MersenneTwisterGenerator\MersenneTwisterGenerator.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>
