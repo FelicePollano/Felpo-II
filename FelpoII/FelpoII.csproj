@@ -99,6 +99,7 @@
     <Compile Include="PieceType.cs" />
     <Compile Include="PinStatus.cs" />
     <Compile Include="PromotionTo.cs" />
+    <Compile Include="Search\PlainAlphaBeta.cs" />
     <Compile Include="Square.cs" />
     <Compile Include="Extension.cs" />
     <Compile Include="Interfaces\IPiece.cs" />

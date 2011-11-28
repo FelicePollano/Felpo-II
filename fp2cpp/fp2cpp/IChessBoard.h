@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using FelpoII.Pieces;
+#ifndef ICHESSBOARD_H
+#define ICHESSBOARD_H
 
-
-namespace FelpoII.Interfaces
-{
+/*
     public interface IChessBoard:IDisposable
     {
         int AllocateHashTable();
@@ -37,7 +32,6 @@ namespace FelpoII.Interfaces
         void Dump(System.IO.StringWriter stringWriter);
 
         void Move(string p);
-        void Move(int move);
 
         event EventHandler DividePartialResult;
 
@@ -51,4 +45,16 @@ namespace FelpoII.Interfaces
         long CurrentDivideNodeCount { get; set; }
 
     }
-}
+*/
+
+class IChessBoard
+{
+public:
+	virtual int AllocateHashTable() = 0;
+	virtual ulong CalcZKey()=0;
+    virtual ulong GetZKey()=0;
+	virtual int[] GetCheckRay() = 0;
+
+};
+
+#endif

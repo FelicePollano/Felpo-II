@@ -968,7 +968,7 @@ namespace FelpoII
         }
         
        
-        private void Move(int move)
+        public void Move(int move)
         {
             
             halfMovesStack.Push(halfMoves);
