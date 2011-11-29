@@ -5,6 +5,7 @@ using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using FelpoII;
 using FelpoII.Search;
+using System.Diagnostics;
 
 namespace EngineTests
 {
@@ -61,16 +62,14 @@ namespace EngineTests
         //
         #endregion
 
+        //"00:01:41.0562645"
         [TestMethod]
         public void TestMethod1()
         {
-            
-            var game = EnumTests.GetGames().First();
-
             int currentBestMove=0;
             int bestDepth = 0;
 
-            OX88Chessboard board = new OX88Chessboard(game.Board);
+            OX88Chessboard board = new OX88Chessboard("2rr3k/pp3pp1/1nnqbN1p/3pN3/2pP4/2P3Q1/PPB4P/R4RK1 w - - 1 1");
             
             Side side = board.ToMove;
 
@@ -80,7 +79,7 @@ namespace EngineTests
                 {
                     int[] moves = new int[100];
                     var n = currentBoard.GetMoves(0,moves);
-                    return moves.Take(n);
+                    return moves.OrderByDescending(m=>m&MovePackHelper.GoodCapture).Take(n);
                 };
             algo.foundMove = (currentBoard, move, depth, score) =>
             {
@@ -107,16 +106,21 @@ namespace EngineTests
                 }
                 return val;
             };
-            algo.quiesce = (chessBoard, alpha, beta) =>
-            {
-                return algo.eval(chessBoard);
-            };
+          
+            int cutoffCount=0;
+            algo.betaCutoff = (currentBoard, move, depth, score) =>
+                {
+                    cutoffCount += 1;
+                };
 
-            algo.Search(board, PlainAlphaBeta.MINEVAL, PlainAlphaBeta.MAXEVAL, 5);
-
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+            algo.Search(board, PlainAlphaBeta.MINEVAL, PlainAlphaBeta.MAXEVAL,7);
+            sw.Stop();
+            var elapsed = sw.Elapsed.ToString();
             
             var best = MovePackHelper.GetAlgebraicString(currentBestMove);
-            Assert.AreEqual(game.BestMove, best);
+            Assert.AreEqual("g3g6", best);
         }
     }
 }

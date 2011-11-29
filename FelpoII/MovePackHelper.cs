@@ -9,8 +9,8 @@ namespace FelpoII
 {
     public static class  MovePackHelper
     {
-        const int Capture = 0x10000;
-        const int GoodCapture = 0x20000;
+        public const int Capture = 0x10000;
+        public const int GoodCapture = 0x20000;
         public const int EpFlag = 0x2000000;
         public const int Castling = 0x4000000;
 
