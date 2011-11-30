@@ -10,6 +10,11 @@ namespace FelpoII.Core.Engines
 {
     public class SimpleVanillaEngine:AbstractEngine
     {
+        int maxdepth;
+        public SimpleVanillaEngine(int depth)
+        {
+            this.maxdepth = depth;
+        }
         protected override void OnBreak()
         {
             throw new NotImplementedException();
@@ -67,7 +72,7 @@ namespace FelpoII.Core.Engines
             };
 
 
-            algo.Search(board, PlainAlphaBeta.MINEVAL, PlainAlphaBeta.MAXEVAL, 7);
+            algo.Search(board, PlainAlphaBeta.MINEVAL, PlainAlphaBeta.MAXEVAL, maxdepth);
             return currentBestMove;
         }
     }

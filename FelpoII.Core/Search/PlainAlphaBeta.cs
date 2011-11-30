@@ -17,6 +17,8 @@ namespace FelpoII.Core.Search
         public Action<IChessBoard, int, int, int> foundMove;
         public Action<IChessBoard, int, int, int> betaCutoff;
 
+        public Func<int, ulong, int> probeBestMove;
+
         public Func<int> zeroMoveEval;
        
         public PlainAlphaBeta()
@@ -27,7 +29,8 @@ namespace FelpoII.Core.Search
             // this is true for chess, but can change for other games..
             zeroMoveEval = () => MINEVAL;
             foundMove =  delegate { };
-            betaCutoff = delegate { };                                
+            betaCutoff = delegate { };      
+            probeBestMove=(depth,key)=>0;              
         }
         public int Search(IChessBoard board, int alpha, int beta,int depth)
         {
@@ -42,6 +45,26 @@ namespace FelpoII.Core.Search
                 {
                     return zeroMoveEval();
                 }
+
+                var pv = probeBestMove(depth, board.ZKey);
+                if (pv != 0)
+                {
+                    board.Move(pv);
+                    var score = -Search(board, -beta, -alpha, depth - 1);
+                    board.UndoMove();
+                    if (score > alpha)
+                    {
+                        foundMove(board, pv, depth, score);
+                        alpha = score;
+                    }
+                    if (alpha >= beta) // current plaier move is better than the other one better, no reason to search further
+                    {
+                        //beta cutoff !!!
+                        betaCutoff(board, pv, depth, score);
+                        return alpha;
+                    }
+                }
+
                 foreach (var move in moves)
                 {
                     board.Move(move);

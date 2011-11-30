@@ -68,14 +68,14 @@ namespace EngineTests
         [TestMethod]
         public void TestQg6()
         {
-            var engine = new SynchronEngineAdapter(new SimpleVanillaEngine(), "2rr3k/pp3pp1/1nnqbN1p/3pN3/2pP4/2P3Q1/PPB4P/R4RK1 w - - 1 1");
+            var engine = new SynchronEngineAdapter(new SimpleVanillaEngine(7), "2rr3k/pp3pp1/1nnqbN1p/3pN3/2pP4/2P3Q1/PPB4P/R4RK1 w - - 1 1");
             Assert.AreEqual("g3g6", engine.Search());
         }
         [TestMethod]
         public void TestQxf3()
         {
-            var engine = new SynchronEngineAdapter(new SimpleVanillaEngine(), "4r1k1/p1pb1ppp/Qbp1r3/8/1P6/2Pq1B2/R2P1PPP/2B2RK1 b - - 1 1");
-            Assert.AreEqual("f2f3", engine.Search());
+            var engine = new SynchronEngineAdapter(new SimpleVanillaEngine(7), "r1b2rk1/1p1nbppp/pq1p4/3B4/P2NP3/2N1p3/1PP3PP/R2Q1R1K w - - 1 1");
+            Assert.AreEqual("f1f7", engine.Search());
         }
     }
 }
