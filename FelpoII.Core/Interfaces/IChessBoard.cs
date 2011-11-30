@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using FelpoII.Pieces;
+using FelpoII.Core.Pieces;
 
 
-namespace FelpoII.Interfaces
+namespace FelpoII.Core.Interfaces
 {
     public interface IChessBoard:IDisposable
     {

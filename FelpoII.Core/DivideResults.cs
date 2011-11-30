@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace FelpoII
+namespace FelpoII.Core
 {
-    public class PerfResults
+    public struct DivideResults
     {
         public ulong MovesCount { get; set; }
-        public ulong Elapsed { get; set; }
-        public ulong HashHit { get; set; }
+        public ulong NodesCount { get; set; }
     }
 }

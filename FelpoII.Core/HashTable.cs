@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Runtime.InteropServices;
 
-namespace FelpoII
+namespace FelpoII.Core
 {
     public static class HashTable
     {

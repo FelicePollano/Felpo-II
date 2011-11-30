@@ -3,9 +3,10 @@ using System.Text;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using FelpoII;
-using FelpoII.Search;
+using FelpoII.Core;
+using FelpoII.Core.Search;
 using System.Diagnostics;
+using FelpoII.Core.Engines;
 
 namespace EngineTests
 {
@@ -63,64 +64,18 @@ namespace EngineTests
         #endregion
 
         //"00:01:41.0562645"
+        //
         [TestMethod]
-        public void TestMethod1()
+        public void TestQg6()
         {
-            int currentBestMove=0;
-            int bestDepth = 0;
-
-            OX88Chessboard board = new OX88Chessboard("2rr3k/pp3pp1/1nnqbN1p/3pN3/2pP4/2P3Q1/PPB4P/R4RK1 w - - 1 1");
-            
-            Side side = board.ToMove;
-
-            PlainAlphaBeta algo = new PlainAlphaBeta();
-           
-            algo.getMoves = (currentBoard) =>
-                {
-                    int[] moves = new int[100];
-                    var n = currentBoard.GetMoves(0,moves);
-                    return moves.OrderByDescending(m=>m&MovePackHelper.GoodCapture).Take(n);
-                };
-            algo.foundMove = (currentBoard, move, depth, score) =>
-            {
-                if (depth >= bestDepth && side == currentBoard.ToMove)
-                {
-                    currentBestMove = move;
-                    bestDepth = depth;
-                    
-                }
-            };
-
-            algo.eval = (currentBoard) =>
-            {
-                int val = 0;
-                foreach (var v in currentBoard.BoardArray)
-                {
-                    if (null != v)
-                    {
-                        if (v.Owner == currentBoard.ToMove)
-                            val += v.Value;
-                        else
-                            val -= v.Value;
-                    }
-                }
-                return val;
-            };
-          
-            int cutoffCount=0;
-            algo.betaCutoff = (currentBoard, move, depth, score) =>
-                {
-                    cutoffCount += 1;
-                };
-
-            Stopwatch sw = new Stopwatch();
-            sw.Start();
-            algo.Search(board, PlainAlphaBeta.MINEVAL, PlainAlphaBeta.MAXEVAL,7);
-            sw.Stop();
-            var elapsed = sw.Elapsed.ToString();
-            
-            var best = MovePackHelper.GetAlgebraicString(currentBestMove);
-            Assert.AreEqual("g3g6", best);
+            var engine = new SynchronEngineAdapter(new SimpleVanillaEngine(), "2rr3k/pp3pp1/1nnqbN1p/3pN3/2pP4/2P3Q1/PPB4P/R4RK1 w - - 1 1");
+            Assert.AreEqual("g3g6", engine.Search());
+        }
+        [TestMethod]
+        public void TestQxf3()
+        {
+            var engine = new SynchronEngineAdapter(new SimpleVanillaEngine(), "4r1k1/p1pb1ppp/Qbp1r3/8/1P6/2Pq1B2/R2P1PPP/2B2RK1 b - - 1 1");
+            Assert.AreEqual("f2f3", engine.Search());
         }
     }
 }

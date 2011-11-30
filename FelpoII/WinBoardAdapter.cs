@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.IO;
-using FelpoII.Interfaces;
+using FelpoII.Core.Interfaces;
+using FelpoII.Core;
 
 namespace FelpoII
 {
@@ -119,8 +120,6 @@ namespace FelpoII
                         break;
                     case "go":
                         force = false;
-                        engine.Side = movingSide;
-                        //engine.StartPlay();
                         AsyncStartPlay();
                         break;
                     case "force":
@@ -129,16 +128,12 @@ namespace FelpoII
                         break;
                     case "black":
                         Break();
-                        engine.Side = Side.Black;
                         movingSide = Side.Black;
-                        engine.MovingSide = Side.Black;
-                        break;
+                        throw new NotImplementedException();
                     case "white":
                         Break();
-                        engine.Side = Side.White;
-                        engine.MovingSide = Side.White;
                         movingSide = Side.White;
-                        break;
+                        throw new NotImplementedException();
                     case "edit":
                         Break();
                         edit = true;
@@ -196,7 +191,7 @@ namespace FelpoII
             if (!force)
             {
                 board.Move(p);
-                engine.Search();
+                engine.BeginSearch(board.SavePos(),null);
             }
             else
             {
@@ -207,7 +202,7 @@ namespace FelpoII
         
         private void AsyncStartPlay()
         {
-            engine.Search();
+            engine.BeginSearch(board.SavePos(),null);
         }
         
        
@@ -251,7 +246,7 @@ namespace FelpoII
 
         void engine_EngineMove(object sender, EventArgs e)
         {
-            OnMessageToWinboard("move "+((sender) as IEngine).BestMove);
+            //OnMessageToWinboard("move "+((sender) as IEngine).BestMove);
         }
         protected virtual void OnMessageToWinboard(string s)
         {

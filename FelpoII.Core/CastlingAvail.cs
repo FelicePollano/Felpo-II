@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace FelpoII
+namespace FelpoII.Core
 {
     public enum CastlingAvail
     {

@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using FelpoII.Interfaces;
+using FelpoII.Core.Interfaces;
 using System.Reflection;
-using FelpoII.Pieces;
+using FelpoII.Core.Pieces;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
-namespace FelpoII
+namespace FelpoII.Core
 {
     public class OX88Chessboard:IChessBoard
     {

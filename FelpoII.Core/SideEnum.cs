@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace FelpoII
+namespace FelpoII.Core
 {
     public enum Side
     {

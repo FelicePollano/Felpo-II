@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using FelpoII.Interfaces;
+using FelpoII.Core.Interfaces;
 
-namespace FelpoII.Pieces
+namespace FelpoII.Core.Pieces
 {
     public class Pawn:Piece
     {

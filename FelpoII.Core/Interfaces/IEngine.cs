@@ -4,16 +4,15 @@ using System.Linq;
 using System.Text;
 
 
-namespace FelpoII.Interfaces
+namespace FelpoII.Core.Interfaces
 {
     public interface IEngine
     {
         void Break();
 
-        void Search();
+        void BeginSearch(string fen,ISearchResults target);
 
-        Side Side { get; set; }
-        Side MovingSide { get; set; }
-        string BestMove { get; }
+        
+       
     }
 }

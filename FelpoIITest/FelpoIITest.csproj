@@ -72,9 +72,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FelpoII\FelpoII.csproj">
-      <Project>{F9D65BCF-4C21-4D77-A067-16C0F6DD88D6}</Project>
-      <Name>FelpoII</Name>
+    <ProjectReference Include="..\FelpoII.Core\FelpoII.Core.csproj">
+      <Project>{19F5E8FC-E242-4289-B5B1-6D7D84DB0347}</Project>
+      <Name>FelpoII.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

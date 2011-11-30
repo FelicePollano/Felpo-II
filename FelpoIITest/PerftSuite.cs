@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
-using FelpoII;
+using FelpoII.Core;
 
 namespace FelpoIITest
 {

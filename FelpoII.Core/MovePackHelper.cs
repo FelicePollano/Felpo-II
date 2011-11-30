@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using FelpoII.Interfaces;
+using FelpoII.Core.Interfaces;
 
-namespace FelpoII
+namespace FelpoII.Core
 {
     public static class  MovePackHelper
     {
