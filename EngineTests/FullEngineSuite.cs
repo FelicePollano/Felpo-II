@@ -72,14 +72,14 @@ namespace EngineTests
             {
                 using (var rc = new RunClock())
                 {
-                    var iengine = new FullEngine(6, tt);
+                    var iengine = new FullEngine(5, tt);
                     iengine.Message += (s, e) =>
                         {
                             Trace.WriteLine(e.Message);
                         };
                     var engine = new SynchronEngineAdapter(iengine
                         , "2rr3k/pp3pp1/1nnqbN1p/3pN3/2pP4/2P3Q1/PPB4P/R4RK1 w - - 1 1"
-                        , TimeSpan.FromMinutes(3)
+                        , TimeSpan.FromSeconds(20)
                         );
                     Assert.AreEqual("g3g6", engine.Search());
                     Console.WriteLine("Elapsed milliseconds:" + rc.GetElapsedMilliseconds());

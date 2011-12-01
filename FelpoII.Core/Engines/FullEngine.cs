@@ -66,7 +66,7 @@ namespace FelpoII.Core.Engines
             }
             return bestMove;
         }
-
+        static readonly int maxQuiesceDepth = 2;
         int AlphaBeta(int depth, int alpha, int beta)
         {
             int score = 0;
@@ -75,7 +75,7 @@ namespace FelpoII.Core.Engines
             TTType ttFlag = TTType.Alpha;
             if (depth == 0)
             {
-                return Quiesce( alpha, beta);
+                return Quiesce( alpha, beta,0);
             }
             else
             {
@@ -115,11 +115,46 @@ namespace FelpoII.Core.Engines
         }
 
 
-        int Quiesce(int alpha,int beta)
+        int Quiesce(int alpha,int beta,int depth)
+        {
+            if (depth == maxQuiesceDepth)
+                return StaticEval();
+            var moves = GetMoves(0);
+            IEnumerable<int> selected;
+            if (board.GetCheckCount(board.ToMove) > 0)
+            {
+                depth -= 1;
+                selected = moves;
+            }
+            else
+                selected = moves.Where(k => (k & MovePackHelper.Capture) != 0);
+            if (selected.Count() == 0)
+                return StaticEval();
+
+            foreach (var move in selected)
+            {
+                board.Move(move);
+                var score = -Quiesce( -beta, -alpha,depth+1);
+                board.UndoMove();
+                if (score > alpha)
+                {
+                    alpha = score;
+                }
+                if (alpha >= beta) // current plaier move is better than the other one better, no reason to search further
+                {
+                    //beta cutoff !!!
+                    break;
+                }
+            }
+            return alpha;
+            
+        }
+
+        private int StaticEval()
         {
             int val = 0;
-            
-           
+
+
             foreach (var v in board.BoardArray)
             {
                 if (null != v)
@@ -130,8 +165,8 @@ namespace FelpoII.Core.Engines
                         val -= v.Value;
                 }
             }
-            
-            
+
+
             return val;
         }
 
