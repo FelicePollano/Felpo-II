@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using FelpoII.Core;
+using FelpoII.Core.Interfaces;
 
 namespace FelpoIITest
 {
@@ -17,20 +18,23 @@ namespace FelpoIITest
         internal void Run()
         {
             using (StreamReader reader = new StreamReader(suiteStream))
+            using(var tt = new UnmanagedTranspositionTable())
             {
                 string line;
                 while ((line = reader.ReadLine()) != null)
                 {
                     if (!string.IsNullOrEmpty(line))
                     {
-                        DoPerftTest(line);
+                        DoPerftTest(line,tt);
                     }
                 }
             }
+        
         }
 
-        private void DoPerftTest(string line)
+        private void DoPerftTest(string line,ITranspositionTable tt)
         {
+            
             string[] chunks = line.Split(';');
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Testing position:" + chunks[0]);
@@ -43,9 +47,9 @@ namespace FelpoIITest
                 level = int.Parse(items[0].Substring(1));
                 expected = ulong.Parse(items[1]);
                 Console.Write("Performing perft {0}. Expected:{1}\t",level,expected);
-                PerfResults res =  board.Perft(level,true);
+                PerfResults res = board.Perft(level, true,tt);
                 Console.ForegroundColor = res.MovesCount == expected ? ConsoleColor.DarkGreen : ConsoleColor.Red;
-                Console.WriteLine("Found:{0}\t\t\t{1}",res.MovesCount,res.MovesCount==expected ? "SUCCESS!":"*ERROR*");
+                Console.WriteLine("Found:{0}\t\t\t{1}", res.MovesCount, res.MovesCount == expected ? "SUCCESS!" : "*ERROR*");
                 Console.ForegroundColor = ConsoleColor.White;
             }
         }

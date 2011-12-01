@@ -13,6 +13,7 @@ namespace FelpoII
     {
         IEngine engine;
         IChessBoard board;
+        ITranspositionTable hashTable;
         bool force;
         bool edit;
         Side movingSide = Side.White;
@@ -24,7 +25,7 @@ namespace FelpoII
             set { ply = value; }
         }
        
-        public WinBoardAdapter(IChessBoard board,IEngine engine)
+        public WinBoardAdapter(IChessBoard board,IEngine engine,ITranspositionTable hashTable)
         {
             this.board = board;
             this.engine = engine;
@@ -80,12 +81,12 @@ namespace FelpoII
                     case "qperft":
                         OnMessageToWinboard("Performing perft with hash table");
                         depth = int.Parse(rPart);
-                        PerfResults res2 = board.Perft(depth, true);
+                        PerfResults res2 = board.Perft(depth, true,hashTable);
                         OnMessageToWinboard(string.Format("Depth: {3} {0} moves {1:0.00} seconds. {2:0.000} Move/s. Hash Hit={4}", res2.MovesCount, (double)res2.Elapsed / 1000.0, (double)res2.MovesCount / (res2.Elapsed / 1000.0), depth,res2.HashHit));
                         break;
                     case "perft":
                         depth = int.Parse(rPart);
-                        PerfResults res = board.Perft(depth,false);
+                        PerfResults res = board.Perft(depth,false,null);
                         OnMessageToWinboard(string.Format("Depth: {3} {0} moves {1:0.00} seconds. {2:0.000} Move/s", res.MovesCount, (double)res.Elapsed / 1000.0, (double)res.MovesCount / (res.Elapsed / 1000.0), depth));
                         break;
                     
@@ -191,7 +192,7 @@ namespace FelpoII
             if (!force)
             {
                 board.Move(p);
-                engine.BeginSearch(board.SavePos(),null);
+                engine.BeginSearch(board.SavePos(),null,TimeSpan.FromHours(1));
             }
             else
             {
@@ -202,7 +203,7 @@ namespace FelpoII
         
         private void AsyncStartPlay()
         {
-            engine.BeginSearch(board.SavePos(),null);
+            engine.BeginSearch(board.SavePos(),null,TimeSpan.FromHours(1));
         }
         
        

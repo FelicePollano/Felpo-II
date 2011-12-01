@@ -79,16 +79,13 @@ namespace FelpoII.Core
         
         public void Dispose()
         {
-            HashTable.Drop();
+            
         }
 
         
        
         const int MaskForHash = 0x7FFFFF;
-        public int AllocateHashTable()
-        {
-            return HashTable.Initialize(MaskForHash);
-        }
+       
 
         public OX88Chessboard(string fen)
         {
@@ -498,7 +495,7 @@ namespace FelpoII.Core
             for( int i=0;i<nodes;++i )
             {
                 Move(divideMoves[i]);
-                PerfResults res = Perft(Math.Max(0,depth-1),false);
+                PerfResults res = Perft(Math.Max(0,depth-1),false,null);
                 if (null != DividePartialResult)
                 {
                     this.CurrentDivideMove = MovePackHelper.GetAlgebraicString(divideMoves[i]);
@@ -513,7 +510,7 @@ namespace FelpoII.Core
         }
         int[] prftMoves;
        
-        public PerfResults Perft(int depth,bool useHash)
+        public PerfResults Perft(int depth,bool useHash,ITranspositionTable table)
         {
             if (useHash == false)
             {
@@ -532,7 +529,7 @@ namespace FelpoII.Core
                 Stopwatch sw = new Stopwatch();
                 PerfResults perft = new PerfResults();
                 sw.Start();
-                perft.MovesCount = InternalPerftWithHash(depth, 0,perft);
+                perft.MovesCount = InternalPerftWithHash(depth, 0,perft,table);
                 sw.Stop();
                 perft.Elapsed = (ulong)sw.ElapsedMilliseconds;
                 return perft;
@@ -550,11 +547,11 @@ namespace FelpoII.Core
                 return blackKing.Checker;
             }
         }
-        private ulong InternalPerftWithHash(int depth, int p,PerfResults res)
+        private ulong InternalPerftWithHash(int depth, int p,PerfResults res,ITranspositionTable table)
         {
             ulong count = 0;
 
-            if (HashTable.ProbeMovesCount(ZKey, out count, depth))
+            if (table.ProbeMovesCount(ZKey, out count, depth))
             {
                 res.HashHit++;
                 return count;
@@ -566,7 +563,7 @@ namespace FelpoII.Core
 
             if (depth == 1)
             {
-                HashTable.StoreMovesCount(ZKey, (ulong)moveCount, 1);
+                table.StoreMovesCount(ZKey, (ulong)moveCount, 1);
                 return (ulong)moveCount;
             }
             if (depth == 0)
@@ -579,11 +576,11 @@ namespace FelpoII.Core
                 Side moving = ToMove;
                 Move(prftMoves[i]);
                 
-                count += InternalPerftWithHash(depth - 1, p + moveCount,res);
+                count += InternalPerftWithHash(depth - 1, p + moveCount,res,table);
                 UndoMove();
                 
             }
-            HashTable.StoreMovesCount(ZKey, count, depth);
+            table.StoreMovesCount(ZKey, count, depth);
             return count;
         }
 
@@ -1368,8 +1365,24 @@ namespace FelpoII.Core
             whitePieceList = whiteList.ToArray();
             blackPieceList = blackList.ToArray();
         }
-        #endregion
+       
 
-        
+
+        public int GetCheckCount(Side side)
+        {
+           
+                if (side == Side.White)
+                {
+                    return whiteKing.CheckCount;
+                }
+                else
+                {
+                    return blackKing.CheckCount;
+                }
+            
+            
+        }
+
+        #endregion
     }
 }

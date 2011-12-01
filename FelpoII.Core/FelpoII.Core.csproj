@@ -47,6 +47,8 @@
     <Compile Include="EndGameEventArgs.cs" />
     <Compile Include="EndGameReporter.cs" />
     <Compile Include="Engines\AbstractEngine.cs" />
+    <Compile Include="Engines\FullEngine.cs" />
+    <Compile Include="Engines\RunClock.cs" />
     <Compile Include="Engines\SimpleVanillaEngine.cs" />
     <Compile Include="Engines\SynchronEngineAdapter.cs" />
     <Compile Include="HashTable.cs" />
@@ -56,7 +58,9 @@
     <Compile Include="Interfaces\IEngine.cs" />
     <Compile Include="Interfaces\IPiece.cs" />
     <Compile Include="Interfaces\ISearchResults.cs" />
+    <Compile Include="Interfaces\ITranspositionTable.cs" />
     <Compile Include="MovePackHelper.cs" />
+    <Compile Include="NullTTable.cs" />
     <Compile Include="OX88Chessboard.cs" />
     <Compile Include="PerfResults.cs" />
     <Compile Include="Piece.cs" />
@@ -73,6 +77,7 @@
     <Compile Include="Search\PlainAlphaBeta.cs" />
     <Compile Include="SideEnum.cs" />
     <Compile Include="Square.cs" />
+    <Compile Include="UnmanagedTranspositionTable.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

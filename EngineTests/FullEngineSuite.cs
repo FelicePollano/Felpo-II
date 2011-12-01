@@ -14,9 +14,9 @@ namespace EngineTests
     /// Summary description for UnitTest1
     /// </summary>
     [TestClass]
-    public class PlainAlphaBetaSuite
+    public class FullEngineSuite
     {
-        public PlainAlphaBetaSuite()
+        public FullEngineSuite()
         {
             //
             // TODO: Add constructor logic here
@@ -66,13 +66,24 @@ namespace EngineTests
         //"00:01:41.0562645"
         //
         [TestMethod]
-        public void TestQg6()
+        public void TestQg6WithTT()
         {
-            using (var rc = new RunClock())
+            using (var tt = new UnmanagedTranspositionTable())
             {
-                var engine = new SynchronEngineAdapter(new SimpleVanillaEngine(7), "2rr3k/pp3pp1/1nnqbN1p/3pN3/2pP4/2P3Q1/PPB4P/R4RK1 w - - 1 1");
-                Assert.AreEqual("g3g6", engine.Search());
-                Console.WriteLine("Elapsed milliseconds:" + rc.GetElapsedMilliseconds());
+                using (var rc = new RunClock())
+                {
+                    var iengine = new FullEngine(6, tt);
+                    iengine.Message += (s, e) =>
+                        {
+                            Trace.WriteLine(e.Message);
+                        };
+                    var engine = new SynchronEngineAdapter(iengine
+                        , "2rr3k/pp3pp1/1nnqbN1p/3pN3/2pP4/2P3Q1/PPB4P/R4RK1 w - - 1 1"
+                        , TimeSpan.FromMinutes(3)
+                        );
+                    Assert.AreEqual("g3g6", engine.Search());
+                    Console.WriteLine("Elapsed milliseconds:" + rc.GetElapsedMilliseconds());
+                }
             }
         }
         /*

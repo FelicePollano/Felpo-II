@@ -11,7 +11,8 @@ namespace FelpoII.Core.Engines
     {
         protected abstract void OnBreak();
         protected abstract IChessBoard CreateBoard(string fen);
-        protected abstract int DoSearch(IChessBoard board);
+        protected abstract int DoSearch(IChessBoard board,TimeSpan timeAvailable);
+
         #region IEngine Members
 
         public void Break()
@@ -19,7 +20,7 @@ namespace FelpoII.Core.Engines
             OnBreak();
         }
 
-        public void BeginSearch(string fen, ISearchResults target)
+        public void BeginSearch(string fen, ISearchResults target,TimeSpan timeVailable)
         {
             var board = CreateBoard(fen);
             var eg = EndGameReporter.ReportEndGame(board);
@@ -32,7 +33,7 @@ namespace FelpoII.Core.Engines
                 BackgroundWorker wrk = new BackgroundWorker();
                 wrk.DoWork += (e, a) =>
                     {
-                        int bestMove = DoSearch(board);
+                        int bestMove = DoSearch(board,timeVailable);
                         string move = string.Empty;
                         if (bestMove != 0)
                         {
@@ -43,6 +44,16 @@ namespace FelpoII.Core.Engines
                 wrk.RunWorkerAsync();
             }
         }
+
+        #endregion
+
+        #region IEngine Members
+
+        protected virtual void ReportMessage(string msg)
+        {
+            Message(this, new InfoMessageEventArgs(msg));
+        }
+        public event EventHandler<InfoMessageEventArgs> Message = delegate { };
 
         #endregion
     }

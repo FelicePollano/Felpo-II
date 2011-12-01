@@ -10,9 +10,9 @@ namespace FelpoII.Core.Interfaces
     {
         void Break();
 
-        void BeginSearch(string fen,ISearchResults target);
+        void BeginSearch(string fen,ISearchResults target,TimeSpan timeVail);
 
-        
+        event EventHandler<InfoMessageEventArgs> Message;
        
     }
 }

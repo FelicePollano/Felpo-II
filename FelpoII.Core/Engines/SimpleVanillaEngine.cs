@@ -25,7 +25,7 @@ namespace FelpoII.Core.Engines
             return new OX88Chessboard(fen);
         }
 
-        protected override int DoSearch(IChessBoard board)
+        protected override int DoSearch(IChessBoard board,TimeSpan timeAvail)
         {
             int currentBestMove = 0;
             int bestDepth = 0;

@@ -9,11 +9,11 @@ namespace FelpoII.Core.Interfaces
 {
     public interface IChessBoard:IDisposable
     {
-        int AllocateHashTable();
         ulong CalcZKey();
         ulong ZKey { get; set; }
         int[] CheckRay { get; }
         int CheckRayLength { get; }
+        int GetCheckCount(Side side);
         bool TestInCheck(Side side);
         IPiece[] BoardArray { get; }
         int GetMoves(int start, int[] moves);
@@ -43,7 +43,7 @@ namespace FelpoII.Core.Interfaces
 
         DivideResults Divide(int depth);
 
-        PerfResults Perft(int depth,bool useHash);
+        PerfResults Perft(int depth,bool useHash,ITranspositionTable hash);
 
         PerfResults Perf(out PerfResults results, int p);
 

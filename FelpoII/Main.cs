@@ -12,9 +12,9 @@ namespace FelpoII
         static void Main(string[] args)
         {
             using(IChessBoard board = new OX88Chessboard())
+            using(var tt = new UnmanagedTranspositionTable())
             {
-                board.AllocateHashTable();
-                WinBoardAdapter adapter = new WinBoardAdapter(board, null);
+                WinBoardAdapter adapter = new WinBoardAdapter(board, null, tt);
                 adapter.MessageToWinboard += new EventHandler<EngineToWinboardEventArgs>(adapter_MessageToWinboard);
                 string line;
                 while(null != ( line = Console.ReadLine()) )
