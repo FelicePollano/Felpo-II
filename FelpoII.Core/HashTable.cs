@@ -27,6 +27,7 @@ namespace FelpoII.Core
         {
             if (hashTable != IntPtr.Zero)
                 Marshal.FreeHGlobal(hashTable);
+            hashTable = IntPtr.Zero;
         }
 
         public static void StoreMovesCount(ulong zkey, ulong moves, int depth)
@@ -133,7 +134,7 @@ namespace FelpoII.Core
             unsafe
             {
                 HashTableEntry* h = (HashTableEntry*)hashTable;
-                h[hash].Payload = (ulong)(((ulong)score << 32) | (ulong)move);
+                h[hash].Payload = (ulong)(((ulong)score << 32) | (uint)move);
                 h[hash].Type = type;
                 h[hash].Key = zkey;
                 h[hash].Depth = (byte)depth;

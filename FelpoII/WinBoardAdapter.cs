@@ -203,7 +203,7 @@ namespace FelpoII
         
         private void AsyncStartPlay()
         {
-            engine.BeginSearch(board.SavePos(),null,TimeSpan.FromHours(1));
+            engine.BeginSearch(board.SavePos(),null,TimeSpan.FromSeconds(10));
         }
         
        

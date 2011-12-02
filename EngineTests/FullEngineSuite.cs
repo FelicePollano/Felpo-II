@@ -66,32 +66,127 @@ namespace EngineTests
         //"00:01:41.0562645"
         //
         [TestMethod]
-        public void TestQg6WithTT()
+        public void TestWac001()
         {
             using (var tt = new UnmanagedTranspositionTable())
             {
                 using (var rc = new RunClock())
                 {
-                    var iengine = new FullEngine(5, tt);
+                    var iengine = new FullEngine(6, tt);
                     iengine.Message += (s, e) =>
                         {
                             Trace.WriteLine(e.Message);
                         };
                     var engine = new SynchronEngineAdapter(iengine
                         , "2rr3k/pp3pp1/1nnqbN1p/3pN3/2pP4/2P3Q1/PPB4P/R4RK1 w - - 1 1"
-                        , TimeSpan.FromSeconds(20)
+                        , TimeSpan.FromSeconds(6)
                         );
                     Assert.AreEqual("g3g6", engine.Search());
                     Console.WriteLine("Elapsed milliseconds:" + rc.GetElapsedMilliseconds());
                 }
             }
         }
-        /*
+        
         [TestMethod]
-        public void TestQxf3()
+        public void TestWac002()
         {
-            var engine = new SynchronEngineAdapter(new SimpleVanillaEngine(7), "r1b2rk1/1p1nbppp/pq1p4/3B4/P2NP3/2N1p3/1PP3PP/R2Q1R1K w - - 1 1");
-            Assert.AreEqual("f1f7", engine.Search());
-        }*/
+            using (var rc = new RunClock())
+            using (var tt = new UnmanagedTranspositionTable())
+            {
+                var iengine = new FullEngine(8, tt);
+                iengine.Message += (s, e) =>
+                {
+                    Trace.WriteLine(e.Message);
+                };
+                var engine = new SynchronEngineAdapter(iengine
+                    , "8/7p/5k2/5p2/p1p2P2/Pr1pPK2/1P1R3P/8 b - - 1 1"
+                    , TimeSpan.FromSeconds(10)
+                    );
+                Assert.AreEqual("b3b2", engine.Search());
+                Console.WriteLine("Elapsed milliseconds:" + rc.GetElapsedMilliseconds());
+            }
+           
+        }
+        [TestMethod]
+        public void TestWac003()
+        {
+            using (var rc = new RunClock())
+            using (var tt = new UnmanagedTranspositionTable())
+            {
+                var iengine = new FullEngine(5, tt);
+                iengine.Message += (s, e) =>
+                {
+                    Trace.WriteLine(e.Message);
+                };
+                var engine = new SynchronEngineAdapter(iengine
+                    , "5rk1/1ppb3p/p1pb4/6q1/3P1p1r/2P1R2P/PP1BQ1P1/5RKN w - - 1 1"
+                    , TimeSpan.FromSeconds(10)
+                    );
+                Assert.AreEqual("e3g3", engine.Search());
+                Console.WriteLine("Elapsed milliseconds:" + rc.GetElapsedMilliseconds());
+            }
+
+        }
+        [TestMethod]
+        public void TestWac004()
+        {
+            using (var rc = new RunClock())
+            using (var tt = new UnmanagedTranspositionTable())
+            {
+                var iengine = new FullEngine(5, tt);
+                iengine.Message += (s, e) =>
+                {
+                    Trace.WriteLine(e.Message);
+                };
+                var engine = new SynchronEngineAdapter(iengine
+                    , "r1bq2rk/pp3pbp/2p1p1pQ/7P/3P4/2PB1N2/PP3PPR/2KR4 w - - 1 1"
+                    , TimeSpan.FromSeconds(10)
+                    );
+                Assert.AreEqual("h6h7", engine.Search());
+                Console.WriteLine("Elapsed milliseconds:" + rc.GetElapsedMilliseconds());
+            }
+
+        }
+        [TestMethod]
+        public void TestWac005()
+        {
+            using (var rc = new RunClock())
+            using (var tt = new UnmanagedTranspositionTable())
+            {
+                var iengine = new FullEngine(5, tt);
+                iengine.Message += (s, e) =>
+                {
+                    Trace.WriteLine(e.Message);
+                };
+                var engine = new SynchronEngineAdapter(iengine
+                    , "5k2/6pp/p1qN4/1p1p4/3P4/2PKP2Q/PP3r2/3R4 b - - 1 1"
+                    , TimeSpan.FromSeconds(10)
+                    );
+                Assert.AreEqual("c6c4", engine.Search());
+                Console.WriteLine("Elapsed milliseconds:" + rc.GetElapsedMilliseconds());
+            }
+
+        }
+        [TestMethod]
+        public void TestWac006()
+        {
+            using (var rc = new RunClock())
+            using (var tt = new UnmanagedTranspositionTable())
+            {
+                var iengine = new FullEngine(5, tt);
+                iengine.Message += (s, e) =>
+                {
+                    Trace.WriteLine(e.Message);
+                };
+                var engine = new SynchronEngineAdapter(iengine
+                    , "7k/p7/1R5K/6r1/6p1/6P1/8/8 w - - 1 1"
+                    , TimeSpan.FromSeconds(10)
+                    );
+                Assert.AreEqual("b6b7", engine.Search());
+                Console.WriteLine("Elapsed milliseconds:" + rc.GetElapsedMilliseconds());
+            }
+
+        }
+
     }
 }

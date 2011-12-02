@@ -105,6 +105,17 @@ namespace FelpoII.Core
                 return _checkRay;
             }
         }
+        public bool InCheck( Side owner)
+        {
+            if (owner == Side.White)
+            {
+                return InAttack(whiteKing.HomeSquare, owner);
+            }
+            else
+            {
+                return InAttack(blackKing.HomeSquare, owner);
+            }
+        }
         public bool InAttack(int square, Side owner)
         {
             if (owner == Side.White)
@@ -967,7 +978,6 @@ namespace FelpoII.Core
        
         public void Move(int move)
         {
-            
             halfMovesStack.Push(halfMoves);
             IPiece p = board[MovePackHelper.GetStartSquare(move)];
             if (MovePackHelper.HasCapture(move))
@@ -1004,7 +1014,7 @@ namespace FelpoII.Core
             Debug.Assert(ZKey == CalcZKey());
         }
 
-        private void Flip()
+        public void Flip()
         {
             if (ToMove == Side.White)
             {

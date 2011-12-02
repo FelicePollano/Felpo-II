@@ -66,6 +66,7 @@ namespace EngineTests
         //"00:01:41.0562645"
         //
         [TestMethod]
+        
         public void TestQg6()
         {
             using (var rc = new RunClock())
@@ -75,12 +76,6 @@ namespace EngineTests
                 Console.WriteLine("Elapsed milliseconds:" + rc.GetElapsedMilliseconds());
             }
         }
-        /*
-        [TestMethod]
-        public void TestQxf3()
-        {
-            var engine = new SynchronEngineAdapter(new SimpleVanillaEngine(7), "r1b2rk1/1p1nbppp/pq1p4/3B4/P2NP3/2N1p3/1PP3PP/R2Q1R1K w - - 1 1");
-            Assert.AreEqual("f1f7", engine.Search());
-        }*/
+        
     }
 }

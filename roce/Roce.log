@@ -1,4 +1,4 @@
-date: 26.10.2011, 9:52.58
+date: 2.11.2011, 11:6.11
 roce-roman's own chess engine
 version: 0.0370
 values read from file: Roce.cfg
@@ -17,3 +17,74 @@ black rook: 500
 black bishop: 300
 black knight: 300
 black pawn: 100
+roce: go
+roce: ?
+roce: go
+roce: move
+roce: help
+roce: uci>>> RECEIVED FROM GUI >>> go
+<<< SENT TO GUI <<< depth 1  hash-hits 0 nps 20000 
+infos
+alpha: 20
+null-move-calls: 0
+null-move-cutoffs: 0
+score cp 20 time 1 pv e2e4 
+<<< SENT TO GUI <<< depth 2  hash-hits 0 nps 7083 
+infos
+alpha: 0
+null-move-calls: 0
+null-move-cutoffs: 0
+score cp 0 time 12 pv e2e4 e7e5 
+<<< SENT TO GUI <<< depth 3  hash-hits 0 nps 15000 
+infos
+alpha: 16
+null-move-calls: 16
+null-move-cutoffs: 16
+score cp 16 time 23 pv e2e4 d7d5 b1c3 
+<<< SENT TO GUI <<< depth 4  hash-hits 0 nps 67184 
+infos
+alpha: 0
+null-move-calls: 33
+null-move-cutoffs: 32
+score cp 0 time 38 pv e2e4 g8f6 b1c3 e7e5 
+<<< SENT TO GUI <<< depth 5  hash-hits 0 nps 210647 
+infos
+alpha: 16
+null-move-calls: 563
+null-move-cutoffs: 529
+score cp 16 time 51 pv d2d4 d7d5 b1c3 c8f5 g1f3 
+<<< SENT TO GUI <<< depth 6  hash-hits 0 nps 606798 
+infos
+alpha: 1
+null-move-calls: 1473
+null-move-cutoffs: 1353
+score cp 1 time 104 pv e2e4 e7e5 d2d4 e5d4 d1d4 g8f6 
+<<< SENT TO GUI <<< depth 7  hash-hits 0 nps 1049521 
+infos
+alpha: 16
+null-move-calls: 10162
+null-move-cutoffs: 8915
+score cp 16 time 242 pv e2e4 e7e5 b1c3 f8d6 g1f3 b8c6 f1c4 
+<<< SENT TO GUI <<< depth 8  hash-hits 0 nps 1299510 
+infos
+alpha: 7
+null-move-calls: 33762
+null-move-cutoffs: 28582
+score cp 7 time 907 pv e2e4 e7e5 g1f3 g8f6 b1c3 f8b4 f3e5 b4c3 d2c3 f6e4 
+<<< SENT TO GUI <<< depth 9  hash-hits 0 nps 1369000 
+infos
+alpha: 18
+null-move-calls: 150328
+null-move-cutoffs: 125637
+score cp 18 time 4479 pv g1f3 g8f6 e2e3 e7e5 f3e5 f8d6 d2d4 e8g8 b1c3 
+
+{additional infos} search nodes 8173657
+QS-nodes: 0
+null move calls: 183463
+null move cut-off: 152732
+first moves beta nodes: 588662
+other beta-cutoffs: 149741
+cut-off ratio 0.797210
+<<< SENT TO GUI <<< bestmove g1f3
+>>> RECEIVED FROM GUI >>> help
+>>> RECEIVED FROM GUI >>> ?

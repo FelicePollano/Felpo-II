@@ -9,6 +9,7 @@ namespace FelpoII.Core.Interfaces
 {
     public interface IChessBoard:IDisposable
     {
+        void Flip();
         ulong CalcZKey();
         ulong ZKey { get; set; }
         int[] CheckRay { get; }
@@ -29,7 +30,7 @@ namespace FelpoII.Core.Interfaces
 
         void Capture(IPiece p);
         void UnCapture(int square);
-
+        bool InCheck(Side owner);
         bool InAttack(int square,Side owner);
         bool CheckIfSafeEpCapture(Side owner,int capturer);
         IPiece GetChecker(Side inMove);
