@@ -105,6 +105,61 @@ namespace FelpoII.Core
             return string.Format("{0}{1}{2}", GetSquareString(GetStartSquare(p)),GetSquareString( GetEndSquare(p)),GetPromotionString(p));
         }
 
+        public static string ProduceShortAlgebraicString(IChessBoard board,int p)
+        {
+            board.TestInCheck(board.ToMove);
+            int [] moves = new int[200];
+            board.GetMoves(0, moves);
+            List<int> possibles = new List<int>();
+            int end = MovePackHelper.GetEndSquare(p);
+            foreach (var m in moves)
+            {
+                if (GetEndSquare(m) == end && board.BoardArray[GetStartSquare(m)].Type == board.BoardArray[GetStartSquare(p)].Type )
+                    possibles.Add(p);
+            }
+            StringBuilder sb = new StringBuilder();
+            var spiece = board.BoardArray[GetStartSquare(p)];
+            if (spiece.Type != PieceType.Pawn)
+            {
+                sb.Append(spiece.ToString().ToUpper());
+            }
+            if (possibles.Count > 1)
+            {
+                var squares = possibles.Select(k=>GetSquareString(GetStartSquare(k)));
+                if (squares.Select(k => k[0]).Distinct().Count() > 1)
+                {
+                    sb.Append(GetSquareString(GetStartSquare(p))[0]);
+                }
+                else if (squares.Select(k => k[1]).Distinct().Count() > 1)
+                {
+                    sb.Append(GetSquareString(GetStartSquare(p))[1]);
+                }
+                else
+                    sb.Append(GetSquareString(GetStartSquare(p)));
+            }
+            if (HasCapture(p))
+                sb.Append("x");
+            sb.Append(GetSquareString(GetEndSquare(p)));
+            board.Move(p);
+            board.TestInCheck(board.ToMove);
+            int cnt = board.GetCheckCount(board.ToMove);
+            if (cnt > 0)
+            {
+                int[] tmp = new int[200];
+                if (0 == board.GetMoves(0, tmp))
+                {
+                    sb.Append("#");
+                }
+                else
+                {
+                    sb.Append(new string('+', cnt));
+                }
+            }
+            board.UndoMove();
+            return sb.ToString();            
+        }
+
+
         private static object GetPromotionString(int p)
         {
             PromotionTo pm = GetPromotion(p);
