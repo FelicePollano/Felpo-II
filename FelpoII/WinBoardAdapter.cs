@@ -8,8 +8,8 @@ using FelpoII.Core;
 
 namespace FelpoII
 {
-    
-    public class WinBoardAdapter
+
+    public class WinBoardAdapter : ISearchResults
     {
         IEngine engine;
         IChessBoard board;
@@ -192,7 +192,7 @@ namespace FelpoII
             if (!force)
             {
                 board.Move(p);
-                engine.BeginSearch(board.SavePos(),null,TimeSpan.FromHours(1));
+                engine.BeginSearch(board.SavePos(),this,TimeSpan.FromHours(1));
             }
             else
             {
@@ -203,7 +203,7 @@ namespace FelpoII
         
         private void AsyncStartPlay()
         {
-            engine.BeginSearch(board.SavePos(),null,TimeSpan.FromSeconds(10));
+            engine.BeginSearch(board.SavePos(),this,TimeSpan.FromSeconds(10));
         }
         
        
@@ -213,7 +213,7 @@ namespace FelpoII
         {
             get { return engine; }
         }
-        public event EventHandler EngineCreated;
+       
         private void InitializeEngine()
         {
            
@@ -224,21 +224,7 @@ namespace FelpoII
             Console.WriteLine(e.Message);
         }
 
-        void engine_EndGame(object sender, EndGameEventArgs e)
-        {
-            string s = null;
-            if (e.StaleMates)
-                s = "1/2-1/2 {Stalemate}";
-            else
-            {
-                if (e.MateSide == Side.White)
-                    s = "0-1 {Black Mates}";
-                else
-                    s = "1-0 {White Mates}";
-            }
-            if( !string.IsNullOrEmpty( s) )
-                OnMessageToWinboard(s);
-        }
+       
 
         void engine_WaitOpponentForMove(object sender, EventArgs e)
         {
@@ -260,5 +246,14 @@ namespace FelpoII
         }
 	
         public event EventHandler<EngineToWinboardEventArgs> MessageToWinboard;
+
+        #region ISearchResults Members
+
+        public void SearchDone(string bestMove, GameEnded gameEnded)
+        {
+            Console.WriteLine("bestmove "+bestMove);
+        }
+
+        #endregion
     }
 }

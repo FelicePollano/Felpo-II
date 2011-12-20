@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using FelpoII.Core.Interfaces;
 using FelpoII.Core;
+using FelpoII.Core.Engines;
 
 namespace FelpoII
 {
@@ -14,7 +15,7 @@ namespace FelpoII
             using(IChessBoard board = new OX88Chessboard())
             using(var tt = new UnmanagedTranspositionTable())
             {
-                WinBoardAdapter adapter = new WinBoardAdapter(board, null, tt);
+                WinBoardAdapter adapter = new WinBoardAdapter(board, new FullEngine(5,tt) , tt);
                 adapter.MessageToWinboard += new EventHandler<EngineToWinboardEventArgs>(adapter_MessageToWinboard);
                 string line;
                 while(null != ( line = Console.ReadLine()) )
